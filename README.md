@@ -14,7 +14,7 @@ DB design
 * password :string
 ## association
 * has_many :massages
-* has_many :groups
+* has_many :groups, through: :group_users
 * has_many :group_users
 ## option
 * name/ null: false, unique: true
@@ -24,7 +24,7 @@ DB design
 # massages
 ## column
 * text :text
-* image :text
+* image :string
 * user_id :refernces
 * group_id :refernces
 ## association
@@ -37,9 +37,8 @@ DB design
 # groups
 ## column
 * name :string
-* user_id :refernces
 ## association
-* belongs_to :user
+* has_many :users, through: :group_users
 * has_many :massages
 * has_many :group_users
 ## option
