@@ -43,7 +43,6 @@ DB design
 * has_many :group_users
 ## option
 * name/ null: false, unique: true
-* user_id/ foreign_key: true
 
 # group_users
 ## column
