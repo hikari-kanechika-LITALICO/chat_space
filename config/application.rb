@@ -9,7 +9,10 @@ Bundler.require(*Rails.groups)
 module ChatSpace
   class Application < Rails::Application
     config.generators do |g|
-        g.test_framework false
+      g.test_framework false
+      g.javascripts false
+      g.stylesheets false
+      g.helper false
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
