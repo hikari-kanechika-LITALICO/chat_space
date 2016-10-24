@@ -45,3 +45,5 @@ group :development do
   gem 'spring'
 end
 gem 'devise'
+gem 'haml-rails'
+gem 'erb2haml'
