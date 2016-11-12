@@ -49,8 +49,8 @@ DB design
 * user_id :refernces
 * group_id :refernces
 ## association
-* belong_to :user
-* belong_to :group
+* belongs_to :user
+* belongs_to :group
 ## option
 * user_id/ foreign_key: true
 * group_id/ foreign_key: true
