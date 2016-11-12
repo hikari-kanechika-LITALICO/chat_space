@@ -1,0 +1,49 @@
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user.clearfix
+        %h5 hikari
+        .chat-user__actions
+          = link_to '', class: "chat-user__action" do
+            %i.fa.fa-pencil-square-o
+          = link_to edit_user_registration_path, class: "chat-user__action" do
+            %i.fa.fa-cog
+      %ul.chat-groups
+        %li.chat-group
+          = link_to '', class: "chat-group__link" do
+            %p.chat-group__name TECH::CAMP
+            %p.chat-group__message Good Morning
+        %li.chat-group
+          = link_to '', class: "chat-group__link" do
+            %p.chat-group__name sample
+            %p.chat-group__message ^ ^
+    .chat-main
+      .chat-header.clearfix
+        .chat-header--left
+          %h2 TECH::CAMP
+          %p.chat-header__users
+            %span.chat-header__user Members:hikari
+        .chat-header--right
+          = link_to 'Edit', '', class: "chat-header__edit-btn"
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name hikari
+              %p.chat-message__time 2016/11/06 00:50:42
+            %p.chat-message__body aaaaaaa
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name hikari
+              %p.chat-message__time 2016/11/06 00:59:42
+            %p.chat-message__body aaa
+      .chat-footer
+        %form.new_message{"id"=>"new_message", "enctype"=>"multipart/form-data", "action"=>"/chat_groups/1312/messages", "accept-charset"=>"UTF-8", "method"=>"post"}
+          %input{"name"=>"utf8", "type"=>"hidden", "value"=>"✓"}
+          %input{"type"=>"hidden", "name"=>"authenticity_token", "value"=>"+awsXY+kD239b84Zwj0NZMj9QOgZnLW5e4U3YFjoUlOU/07YKRsRhP5vghFCkBGH7m7j6p2tEhoBXMFW6p4QXg=="}
+          .chat-footer__body
+            %textarea{"row"=>"1", "placeholder"=>"type a message", "name"=>"message[body]", "id"=>"message_body"}
+            %label.chat-footer__file
+              %i.fa.fa-image
+                %input{"type"=>"file", "name"=>"message[image]", "id"=>"message_image"}
+          %input{"type"=>"submit", "name"=>"commit", "value"=>"Send", "data-disable-with"=>"Send"}

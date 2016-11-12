@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023071718) do
+ActiveRecord::Schema.define(version: 20161023074301) do
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer  "group_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group_users", ["group_id"], name: "fk_rails_a9d5f48449", using: :btree
+  add_index "group_users", ["user_id"], name: "fk_rails_1486913327", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -50,6 +60,8 @@ ActiveRecord::Schema.define(version: 20161023071718) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
   add_foreign_key "massages", "groups"
   add_foreign_key "massages", "users"
 end
