@@ -4,17 +4,17 @@
       .chat-user.clearfix
         %h5 hikari
         .chat-user__actions
-          %a.chat-user__action{"href"=>"/chat_groups/new"}
+          = link_to '', class: "chat-user__action" do
             %i.fa.fa-pencil-square-o
-          %a.chat-user__action{"href"=>"/users/edit"}
+          = link_to edit_user_registration_path, class: "chat-user__action" do
             %i.fa.fa-cog
       %ul.chat-groups
         %li.chat-group
-          %a.chat-group__link{"href"=>"/chat_groups/1302/messages"}
+          = link_to '', class: "chat-group__link" do
             %p.chat-group__name TECH::CAMP
             %p.chat-group__message Good Morning
         %li.chat-group
-          %a.chat-group__link{"href"=>"/chat_groups/1302/messages"}
+          = link_to '', class: "chat-group__link" do
             %p.chat-group__name sample
             %p.chat-group__message ^ ^
     .chat-main
@@ -24,7 +24,7 @@
           %p.chat-header__users
             %span.chat-header__user Members:hikari
         .chat-header--right
-          %a.chat-header__edit-btn{"href"=>"/chat_groups/1312/edit"}Edit
+          = link_to 'Edit', '', class: "chat-header__edit-btn"
       .chat-body
         %ul.chat-messages
           %li.chat-message
