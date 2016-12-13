@@ -1,53 +1,40 @@
-
 .layout-notice {
-  // float: none;
   height: 30px;
   line-height: 30px;
   letter-spacing: 1px;
-  color: #fff;
-  background-color: #38aef0;
+  color: $text_color_gray;
+  background-color: $buttom_color;
   font-weight: 200;
   text-align: center;
-  // position: fixed;
   width: 100%;
   z-index: 100;
 }
 
 
 .layout-alert {
-  // float: none;
   height: 30px;
   line-height: 30px;
   letter-spacing: 1px;
-  color: #fff;
+  color: $text_color_gray;
   background-color: red;
   font-weight: 200;
   text-align: center;
-  // position: fixed;
   width: 100%;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   z-index: 100;
 }
 
 .account-page {
   .account-page__inner {
+    @include clearfix();
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: $text_color_gray;
+    border: 1px solid $chat_footer_color;
     border-radius: 5px;
-
     .account-page__inner--left, .account-page__inner--right {
       float: left;
       width: 50%;
-    }
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
     }
   }
 
@@ -63,7 +50,7 @@
         display: block;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid $buttom_color;
       }
     }
 
@@ -75,8 +62,8 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
-      background-color: #ccc;
+      color: $text_color_gray;
+      background-color: $sign_up_buttom;
       font-size: 14px;
     }
   }
@@ -118,8 +105,8 @@
   input[type='submit'] {
     float: left;
     margin-top: 20px;
-    color: #fff;
-    background-color: #38aef0;
+    color: $text_color_gray;
+    background-color: $buttom_color;
   }
 
   .field-label {
@@ -151,7 +138,7 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid $chat_footer_color;
   border-radius: 2px;
 
   h2 {
