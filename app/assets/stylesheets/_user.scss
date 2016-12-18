@@ -2,7 +2,7 @@
   height: 30px;
   line-height: 30px;
   letter-spacing: 1px;
-  color: $text_color_gray;
+  color: $white_color;
   background-color: $buttom_color;
   font-weight: 200;
   text-align: center;
@@ -15,7 +15,7 @@
   height: 30px;
   line-height: 30px;
   letter-spacing: 1px;
-  color: $text_color_gray;
+  color: $white_color;
   background-color: red;
   font-weight: 200;
   text-align: center;
@@ -29,8 +29,8 @@
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: $text_color_gray;
-    border: 1px solid $chat_footer_color;
+    background-color: $white_color;
+    border: 1px solid $lightgray_color;
     border-radius: 5px;
     .account-page__inner--left, .account-page__inner--right {
       float: left;
@@ -62,7 +62,7 @@
 
     .btn {
       margin-top: 20px;
-      color: $text_color_gray;
+      color: $white_color;
       background-color: $sign_up_buttom;
       font-size: 14px;
     }
@@ -105,7 +105,7 @@
   input[type='submit'] {
     float: left;
     margin-top: 20px;
-    color: $text_color_gray;
+    color: $white_color;
     background-color: $buttom_color;
   }
 
@@ -138,7 +138,7 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid $chat_footer_color;
+  border: 1px solid $lightgray_color;
   border-radius: 2px;
 
   h2 {

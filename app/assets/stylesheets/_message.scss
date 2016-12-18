@@ -2,6 +2,11 @@
   -webkit-box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  background-color: $off_white;
+}
+
 .chat {
   min-width: 980px;
   height: 100%;
@@ -16,7 +21,7 @@
 .chat-user {
   @include clearfix();
   padding: 20px;
-  color: $text_color_gray;
+  color: $white_color;
   background-color: $chat_side_top_color;
   &__actions {
     float: right;
@@ -25,7 +30,7 @@
     display: inline-block;
     margin: 15px 0 15px 3px;
     line-height: 28px;
-    color: $text_color_gray;
+    color: $white_color;
     font-size: 20px;
   }
   h5 {
@@ -40,7 +45,7 @@
 .chat-groups {
   margin: 0;
   padding: 0;
-  color: $text_color_gray;
+  color: $white_color;
   list-style: none;
   .chat-group {
     a {
@@ -61,7 +66,7 @@
     &__link {
       display: block;
       padding: 20px 20px;
-      color: $text_color_gray;
+      color: $white_color;
     }
   }
 }
@@ -77,7 +82,7 @@
   @include clearfix();
   padding-right: 40px;
   padding-left: 40px;
-  background-color: $text_color_gray;
+  background-color: $white_color;
   border-bottom: 1px solid #eee;
   &--right {
     float: right;
@@ -141,7 +146,7 @@
     &__time {
       padding: 0;
       font-size: 12px;
-      color: $chat_massage_time_color;
+      color: $darkgray_color;
       padding-top: 2px;
     }
   }
@@ -152,7 +157,7 @@
   right: 0;
   bottom: 0;
   padding: 20px 40px;
-  background-color: $chat_footer_color;
+  background-color: $lightgray_color;
   width: calc(100% - 300px);
   input[type='submit'] {
     float: left;
@@ -160,7 +165,7 @@
     width: 100px;
     margin-left: 15px;
     line-height: 50px;
-    color: $text_color_gray;
+    color: $white_color;
     background-color: $buttom_color;
     text-align: center;
     border: none;
