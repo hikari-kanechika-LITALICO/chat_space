@@ -3,7 +3,7 @@ DB design
 
 # table list
 * users
-* massages
+* messages
 * groups
 * group_users
 
@@ -13,7 +13,7 @@ DB design
 * email :text
 * password :string
 ## association
-* has_many :massages
+* has_many :messages
 * has_many :groups, through: :group_users
 * has_many :group_users
 ## option
@@ -21,7 +21,7 @@ DB design
 * email/ null: false, unique: true
 * password/ null: false
 
-# massages
+# messages
 ## column
 * text :text
 * image :string
@@ -39,7 +39,7 @@ DB design
 * name :string
 ## association
 * has_many :users, through: :group_users
-* has_many :massages
+* has_many :messages
 * has_many :group_users
 ## option
 * name/ null: false, unique: true
