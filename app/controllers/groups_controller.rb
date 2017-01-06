@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:edit, :update]
   def index
     @user = current_user.name
     @groups = Group.order(created_at: :desc)
@@ -9,7 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(create_params)
+    @group = Group.new(group_params)
     if @group.save
       flash[:notice] = 'チャットグループが作成されました。'
       redirect_to :root and return
@@ -20,14 +21,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    set_group
     @users = @group.users
   end
 
   def update
-    set_group
-    @group.update(update_params)
-    redirect_to :root
+    if @group.update(group_params)
+      flash[:notice] = 'チャットグループが更新されました'
+      redirect_to :root
+    else
+      flash[:alert] = 'チャットグループが更新されませんでした'
+      render :edit and return
+    end
   end
 
   private
@@ -35,11 +39,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def create_params
-    params.require(:group).permit(:name)
-  end
-
-  def update_params
+  def group_params
     params.require(:group).permit(:name)
   end
 end
