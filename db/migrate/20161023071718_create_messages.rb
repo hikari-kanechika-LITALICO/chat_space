@@ -1,6 +1,6 @@
-class CreateMassages < ActiveRecord::Migration
+class CreateMessages < ActiveRecord::Migration
   def change
-    create_table :massages do |t|
+    create_table :messages do |t|
       t.text        :text
       t.string      :image
       t.references   :user, foreign_key: true

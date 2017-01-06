@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161023074301) do
     t.datetime "updated_at"
   end
 
-  create_table "massages", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text     "text",       limit: 65535
     t.string   "image",      limit: 255
     t.integer  "user_id",    limit: 4
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20161023074301) do
     t.datetime "updated_at"
   end
 
-  add_index "massages", ["group_id"], name: "fk_rails_db47578cc0", using: :btree
-  add_index "massages", ["user_id"], name: "fk_rails_8a9497c4bf", using: :btree
+  add_index "messages", ["group_id"], name: "fk_rails_841b0ae6ac", using: :btree
+  add_index "messages", ["user_id"], name: "fk_rails_273a25a7a6", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -62,6 +62,6 @@ ActiveRecord::Schema.define(version: 20161023074301) do
 
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
-  add_foreign_key "massages", "groups"
-  add_foreign_key "massages", "users"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users"
 end
