@@ -14,7 +14,7 @@
           .chat-message__header.clearfix
             %p.chat-message__name= @message.user.name
             %p.chat-message__time= @message.created_at.strftime('%Y/%m/%d %H:%M')
-          %p.chat-message__body= @message.text
+            %p.chat-message__body= @message.text if @message.text?
     .chat-footer
       %form.new_message{"id"=>"new_message", "enctype"=>"multipart/form-data", "action"=>"/chat_groups/1312/messages", "accept-charset"=>"UTF-8", "method"=>"post"}
         %input{"name"=>"utf8", "type"=>"hidden", "value"=>"✓"}
