@@ -1,4 +1,9 @@
 class GroupsController < ApplicationController
+  def index
+    @user = current_user.name
+    @groups = Group.order(created_at: :desc)
+  end
+
   def new
     @group = Group.new
   end
@@ -15,10 +20,26 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    set_group
+    @users = @group.users
+  end
+
+  def update
+    set_group
+    @group.update(update_params)
+    redirect_to :root
   end
 
   private
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
   def create_params
+    params.require(:group).permit(:name)
+  end
+
+  def update_params
     params.require(:group).permit(:name)
   end
 end
