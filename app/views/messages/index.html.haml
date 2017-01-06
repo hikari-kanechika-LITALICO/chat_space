@@ -5,7 +5,7 @@
       .chat-header--left
         %h2= @message.group.name
         .chat-header__users
-          %span.chat-header__user= "Menber #{@message.user.name}"
+          %span.chat-header__user= "Member #{@message.user.name}"
       .chat-header--right
         = link_to 'Edit' ,edit_group_path(params[:group_id]), class: "chat-header__edit-btn"
     .chat-body
