@@ -1,0 +1,5 @@
+%li.chat-message
+  .chat-message__header.clearfix
+    %p.chat-message__name= chat_body.user.name
+    %p.chat-message__time= chat_body.created_at.to_s(:published_on)
+    %p.chat-message__body= chat_body.try(:text)
