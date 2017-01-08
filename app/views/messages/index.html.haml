@@ -3,18 +3,19 @@
   .chat-main
     .chat-header.clearfix
       .chat-header--left
-        %h2= @message.group.name
+        %h2= @group.name
         .chat-header__users
-          %span.chat-header__user= "Member #{@message.user.name}"
+          %span.chat-header__user= "Member #{@group.users.map(&:name).join}"
       .chat-header--right
-        = link_to 'Edit' ,edit_group_path(params[:group_id]), class: "chat-header__edit-btn"
+        = link_to 'Edit' ,edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
-      %ul.chat-messages
-        %li.chat-message
-          .chat-message__header.clearfix
-            %p.chat-message__name= @message.user.name
-            %p.chat-message__time= @message.created_at.to_s(:published_on)
-            %p.chat-message__body= @message.try(:text)
+      - @messages.each do |message|
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name= message.user.name
+              %p.chat-message__time= message.created_at.to_s(:published_on)
+              %p.chat-message__body= message.try(:text)
     .chat-footer
       %form.new_message{"id"=>"new_message", "enctype"=>"multipart/form-data", "action"=>"/chat_groups/1312/messages", "accept-charset"=>"UTF-8", "method"=>"post"}
         %input{"name"=>"utf8", "type"=>"hidden", "value"=>"✓"}
