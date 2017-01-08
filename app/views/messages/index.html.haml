@@ -5,17 +5,12 @@
       .chat-header--left
         %h2= @group.name
         .chat-header__users
-          %span.chat-header__user= "Member #{@group.users.map(&:name).join}"
+          %span.chat-header__user= "Member #{@group.users.pluck(:name).join}"
       .chat-header--right
         = link_to 'Edit' ,edit_group_path(@group), class: "chat-header__edit-btn"
     .chat-body
-      - @messages.each do |message|
-        %ul.chat-messages
-          %li.chat-message
-            .chat-message__header.clearfix
-              %p.chat-message__name= message.user.name
-              %p.chat-message__time= message.created_at.to_s(:published_on)
-              %p.chat-message__body= message.try(:text)
+      %ul.chat-messages
+        = render partial: 'messages/chat_body', collection: @messages
     .chat-footer
       %form.new_message{"id"=>"new_message", "enctype"=>"multipart/form-data", "action"=>"/chat_groups/1312/messages", "accept-charset"=>"UTF-8", "method"=>"post"}
         %input{"name"=>"utf8", "type"=>"hidden", "value"=>"✓"}
