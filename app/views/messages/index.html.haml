@@ -12,12 +12,10 @@
       %ul.chat-messages
         = render partial: 'messages/chat_body', collection: @messages
     .chat-footer
-      %form.new_message{"id"=>"new_message", "enctype"=>"multipart/form-data", "action"=>"/chat_groups/1312/messages", "accept-charset"=>"UTF-8", "method"=>"post"}
-        %input{"name"=>"utf8", "type"=>"hidden", "value"=>"✓"}
-        %input{"type"=>"hidden", "name"=>"authenticity_token", "value"=>"+awsXY+kD239b84Zwj0NZMj9QOgZnLW5e4U3YFjoUlOU/07YKRsRhP5vghFCkBGH7m7j6p2tEhoBXMFW6p4QXg=="}
+      = form_for @message, url: group_messages_path(@group), id: 'message_body', html: {class: 'new_message'} do |f|
         .chat-footer__body
-          %textarea{"row"=>"1", "placeholder"=>"type a message", "name"=>"message[body]", "id"=>"message_body"}
+          = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body'
           %label.chat-footer__file
             %i.fa.fa-image
               %input{"type"=>"file", "name"=>"message[image]", "id"=>"message_image"}
-        %input{"type"=>"submit", "name"=>"commit", "value"=>"Send", "data-disable-with"=>"Send"}
+        = f.submit 'Sent'
