@@ -12,7 +12,7 @@
       %ul.chat-messages
         = render partial: 'messages/chat_body', collection: @messages
     .chat-footer
-      = form_for @message, url: group_messages_path(@group), id: 'message_body', html: {class: 'new_message'} do |f|
+      = form_for [@group, @message], id: 'new_message', html: {class: 'new_message'} do |f|
         .chat-footer__body
           = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body'
           %label.chat-footer__file
