@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :group_params
   def index
     @groups = Group.order(created_at: :desc)
-    @messages = Message.where(group_id: params[:group_id])
+    @messages = @group.messages
     @message = Message.new
   end
 
