@@ -2,9 +2,7 @@ require 'rails_helper'
 describe Message do
   describe '#create' do
     it "is valid with all message" do
-      message = build(:message)
-      message.valid?
-      expect(message).to be_valid
+      expect(build(:message)).to be_valid
     end
 
     it "is invalid without a message" do
