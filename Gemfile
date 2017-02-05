@@ -11,9 +11,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry-rails'
   gem 'rspec-rails', "~> 3.1.0"
   gem 'factory_girl_rails', "~> 4.4.1"
-  gem 'ffaker'
+  gem 'faker'
 end
 
 group :development do
@@ -25,5 +26,4 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
-gem 'pry-rails'
 gem 'devise-i18n'
