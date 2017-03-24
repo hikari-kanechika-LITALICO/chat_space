@@ -14,7 +14,7 @@
     .chat-footer
       = form_for [@group, @message], id: 'new_message', html: {class: 'new_message'} do |f|
         .chat-footer__body
-          = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body'
+          = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body', class: 'js-form__text-field'
           %label.chat-footer__file
             %i.fa.fa-image
               %input{"type"=>"file", "name"=>"message[image]", "id"=>"message_image"}
