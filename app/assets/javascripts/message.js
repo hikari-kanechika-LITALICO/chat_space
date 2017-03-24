@@ -1,24 +1,28 @@
 $(function() {
-  function buildHTML(message) {
-    var html = $("<li class= 'chat-message'>" +  "<div class = 'chat-message__header'>" + "<p class = 'chat-message__name'>" + chat_body.user.name + "</p>" + "<p class = 'chat-message__time'>" + chat_body.created_at.to_s(:published_on) + "</p>" + "<p class = 'chat-message__body'>" + chat_body.try(:text) + "</p>" + "</div>" + "</li>") ;
+  function buildHTML(data) {
+    var message = data.message
+    var html = $("<li class= 'chat-message'>" +  "<div class = 'chat-message__header'>" + "<p class = 'chat-message__name'>" + message.name + "</p>" + "<p class = 'chat-message__time'>" + message.created_at + "</p>" + "<p class = 'chat-message__body'>" + message.text + "</p>" + "</div>" + "</li>") ;
     return html;
-  }
-  $('.js-form').on('submit', function(e) {
+  };
+
+  $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.js-form__text-field');
+    var message = textField.val();
     $.ajax({
+      url: 'messages',
       type: 'POST',
-      url: '/messages.json',
+      dataType: 'json',
       data: {
         message: {
-          content: message
+          text: message
         }
       },
       dataType: 'json'
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.messages').append(html);
+      $('.chat-messages').append(html);
       textField.val('');
     })
     .fail(function() {
