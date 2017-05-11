@@ -7,6 +7,8 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @members = User.order(created_at: :desc)
+    @users = User.new
   end
 
   def create

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :groups, shallow: true do
     resources :messages, only: [:index, :create]
   end
+  get 'users/search' => 'users#search'
 end
