@@ -36,14 +36,14 @@ $(function() {
     .fail(function() {
       alert('エラーです');
     });
-    $(document).on('click', '.chat-group-user__btn--add', function(){
-      $(this).parent().remove();
-      var id = $(this).data('user-id');
-      var name = $(this).data('user-name');
-      $('#chat-group-users').append(AddUserHTML(id, name));
-    });
-    $(document).on('click', '.chat-group-user__btn--remove', function(){
-      $(this).parent().remove();
-    });
+  });
+  $(document).on('click', '.chat-group-user__btn--add', function(){
+    $(this).parent().remove();
+    var id = $(this).data('user-id');
+    var name = $(this).data('user-name');
+    $('#chat-group-users').append(AddUserHTML(id, name));
+  });
+  $(document).on('click', '.chat-group-user__btn--remove', function(){
+    $(this).parent().remove();
   });
 });
