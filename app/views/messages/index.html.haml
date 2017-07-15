@@ -17,5 +17,5 @@
           = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body', class: 'js-form__text-field'
           %label.chat-footer__file
             %i.fa.fa-image
-              %input{"type"=>"file", "name"=>"message[image]", "id"=>"message_image"}
+              = f.file_field :image, class: "image_form_button"
         = f.submit 'Sent'
