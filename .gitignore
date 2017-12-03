@@ -13,3 +13,7 @@
 /tmp
 
 config/secrets.yml
+*.png
+*.jpg
+*.jpeg
+*.gif
