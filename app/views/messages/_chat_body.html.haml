@@ -3,6 +3,6 @@
     %p.chat-message__name= chat_body.user.name
     %p.chat-message__time= chat_body.created_at.to_s(:published_on)
     - if chat_body.text?
-      %p.chat-message__body= chat_body.try(:text)
+      %p.chat-message__body= chat_body&.text
     - if chat_body.image?
       = image_tag(chat_body.image)
