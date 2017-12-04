@@ -1,16 +1,9 @@
 $(function() {
   function buildHTML(data) {
-    var message = data.message
-    if (message.text) {
-      var text = "<p>" + message.text + "</p>";
-    } else {
-      var text = "";
-    }
-    if (message.image) {
-      var image = '<img src="' + message.image + '">';
-    } else {
-      var image = "";
-    }
+    var message = data.message;
+    var text = build_text(message);
+    var image = build_image(message);
+
     var html = $(
       "<li class= 'chat-message'>" +
       "<div class = 'chat-message__header'>" +
@@ -20,10 +13,19 @@ $(function() {
     return html;
   };
 
+  function build_text(message) {
+    if (message.text==null) return "";
+    return "<p>" + message.text + "</p>";
+  }
+
+  function build_image(message) {
+    if (message.image==null) return "";
+    return  '<img src="' + message.image + '">';
+  }
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('.js-form__text-field');
-    var message = textField.val();
     var fd = new FormData($(this).get(0));
     $.ajax({
       url: 'messages',
