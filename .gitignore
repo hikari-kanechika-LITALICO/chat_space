@@ -13,7 +13,4 @@
 /tmp
 
 config/secrets.yml
-*.png
-*.jpg
-*.jpeg
-*.gif
+public/uploads/tmp
