@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.json
-        flash[:notice] = 'メッセージ送信できました'
       end
     else
       flash[:alert] = 'メッセージを入力してください'
@@ -25,6 +24,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:text).merge(user_id: current_user.id)
+    params.require(:message).permit(:text, :image).merge(user_id: current_user.id)
   end
 end

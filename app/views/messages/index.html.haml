@@ -12,10 +12,10 @@
       %ul.chat-messages
         = render partial: 'messages/chat_body', collection: @messages
     .chat-footer
-      = form_for [@group, @message], id: 'new_message', html: {class: 'new_message'} do |f|
+      = form_for [@group, @message], id: 'new_message', html: {class: 'new_message'}, remote: true do |f|
         .chat-footer__body
           = f.text_field :text, placeholder: 'type a message', row: 1, id: 'message_body', class: 'js-form__text-field'
           %label.chat-footer__file
             %i.fa.fa-image
-              %input{"type"=>"file", "name"=>"message[image]", "id"=>"message_image"}
+              = f.file_field :image, class: "image_form_button"
         = f.submit 'Sent'
